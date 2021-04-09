@@ -38,4 +38,5 @@ class HangmanTest {
         String expectedOutput = "Sorry, you are out of guesses. The word was: test";
         simulateGame(simulatedUserInput, expectedOutput);
     }
+
 }

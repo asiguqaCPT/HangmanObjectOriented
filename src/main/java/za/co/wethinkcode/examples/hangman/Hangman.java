@@ -13,11 +13,10 @@ public class Hangman {
 
     public static void main(String[] args) throws IOException {
         // end::hangman-class[]
+        Player player = new Player();
         Random random = new Random();
         Scanner inputScanner = new Scanner(System.in);
         // tag::numberGuesses[]
-        int numberGuesses = 5;
-        // end::numberGuesses[]
 
         System.out.println("Words file? [leave empty to use short_words.txt]");
         String fileName = inputScanner.nextLine();
@@ -53,9 +52,9 @@ public class Hangman {
                 System.out.println(currentAnswer);
             } else {
                 // tag::use-numberGuesses[]
-                numberGuesses -= 1;
-                System.out.println("Wrong! Number of guesses left: " + numberGuesses);
-                if (numberGuesses <= 0) {
+                player.lostChance();
+                System.out.println("Wrong! Number of guesses left: " + player.getChances());
+                if (player.hasNoChances()) {
                     System.out.println("Sorry, you are out of guesses. The word was: " + selectedWord);
                     break;
                 }
